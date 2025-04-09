@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+## Cheat Sheet for 2 lines label style
+# # First label (top)
+# sketchybar --add item test.top left \
+#            --set test.top label="Top Label" icon.drawing=off \
+#                           width=dynamic height=15 y_offset=5 \
+#                           width=0  \
+#                           background.padding_left=10 \
+#           --add item label_bottom left \
+#            --set label_bottom label="Bottom Label" icon.drawing=off \
+#                              width=dynamic height=15 y_offset=-10 \
+#                              background.padding_left=10
+
+# # Add both to the bracket
+# sketchybar --set dual_label_bracket items=label_top,label_bottom
+
+source "$CONFIG_DIR/variables.sh"
+
+ITEM_DIR="$CONFIG_DIR/items"
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+# Default settings
+defaults=(
+  updates=when_shown
+  icon.font="$FONT:Bold:16.0"
+	label.font="$FONT:Regular:13.0"
+  background.height=40
+  background.corner_radius=10
+  background.border_width=2
+)
+
+bar=(
+  position=top
+  color=$TRANSPARENT
+  y_offset=5
+  height=40
+  padding_right=10
+  padding_left=10
+  topmost=window
+)
+
+##### Bar Appearance #####
+
+sketchybar --bar "${bar[@]}"
+
+sketchybar --default "${defaults[@]}"
+
+##### Left #####
+source "$ITEM_DIR/spaces.sh"
+source "$ITEM_DIR/front_app.sh"
+
+##### Right #####
+source "$ITEM_DIR/clock.sh"
+source "$ITEM_DIR/calendar.sh"
+source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/volume.sh"
+source "$ITEM_DIR/network.sh"
+
+sketchybar --update
+# sketchybar --hotload on
