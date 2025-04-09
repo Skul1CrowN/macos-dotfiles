@@ -1,18 +1,13 @@
 # dotfiles
 
-----------------------
 My dotfiles configuration on MacOS
 
 ## Screenshot
-
-----------------------
 
 ![image1](assets/image1.png)
 ![image2](assets/image2.png)
 
 ## Stuff I have used
-
-----------------------
 
 * Bar: [SketchyBar](https://github.com/FelixKratz/SketchyBar)
 * Border: [JankyBorders](https://github.com/FelixKratz/JankyBorders)
